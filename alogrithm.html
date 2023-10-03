@@ -3,19 +3,177 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Accessing a Variable from External JavaScript</title>
+    <title>Love Chemistry Calculator</title>
+    <style>
+        /* Container Styles */
+        div.container {
+            width: 500px;
+            background-color: #f5f5f5;
+            border: 1px solid #ccc;
+            padding: 20px;
+            margin: 10px auto;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+        }
+
+        /* Body Styles */
+        body {
+            background-color: #f0f0f0;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Heading Styles */
+        h1 {
+            font-size: 32px;
+            color: #333;
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        h2 {
+            font-size: 24px;
+            color: #555;
+        }
+
+        /* Label Styles */
+        label {
+            display: block;
+            font-size: 18px;
+            margin-top: 5px;
+            color: #666;
+        }
+
+        /* Input Styles */
+        input[type="text"],
+        input[type="date"],
+        input[type="checkbox"] {
+            width: 100%;
+            height: 40px;
+            padding: 0 7px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            
+        }
+
+        /* Placeholder Styles */
+        input::placeholder {
+            font-size: 14px;
+            color: #999;
+        }
+
+        /* Button Styles */
+        #button {
+            width: 140px;
+            height: 50px;
+            border: none;
+            background-color: #ff6f61;
+            border-radius: 25px;
+            font-size: 18px;
+            font-weight: bold;
+            text-transform: uppercase;
+            color: white;
+            cursor: pointer;
+            margin: 20px auto;
+            display: block;
+        }
+
+        /* Button Hover Effect */
+        #button:hover {
+            background-color: #ff4c3e;
+        }
+
+        /* Result Styles */
+        #div {
+            visibility: hidden;
+            font-size: 20px;
+            color: #333;
+            margin-top: 20px;
+        }
+
+        #result {
+            font-size: 20px;
+            color: #333;
+            text-align: center;
+        }
+
+        /* Link Styles */
+        #result a {
+            margin-left: 10px;
+            text-decoration: none;
+            color: #0073e6;
+        }
+        label[for = 'check_one'],label[for = 'check_two'],label[for = 'check_one1'],label[for = 'check_two1']{
+            display: inline;
+            
+        }
+        .container input[type  = 'checkbox']{
+            display:inline;
+            width: 20px;
+            height: 15px;
+            padding-bottom: 0;
+
+        }
+        
+    </style>
 </head>
 <body>
-    <h1>Accessing a Variable from External JavaScript</h1>
+    <h1>Check Your Love Chemistry</h1>
+    <div class="container">
+        <h2>Your Information</h2>
+        <label for="check_one"> Male
+            <input type="checkbox" id="check_one" onclick="love('male')" >
+        </label>
+        <label for="check_two"> Female
+            <input type="checkbox" id="check_two" onclick="love('female')">
+        </label>
+        <label for="birth_date" > Enter Your Own birth_date
+            <input id="birth_date" type="date" placeholder="Date ">
+        </label>
+        <label for="fullname" > Enter Your Full Name
+            <input id="fullname" type="text" placeholder="Enter Your Full Name">
+        </label>
+    </div>
+    <div class="container">
+        <h2>The Persons Information</h2>
+        <label for="check_one1"> Male
+            <input type="checkbox" id="check_one1" onclick="getLove('male')">
+        </label>
+        <label for="check_two1"> Female
+            <input type="checkbox" id="check_two1" onclick="getLove('female')">
+        </label>
+        <label for="birth_date1"> Enter Your Own birth_date
+            <input id="birth_date1" type="date">
+        </label>
+        <label for="fullname1">Enter The Person Name
+            <input id="fullname1" type="text" placeholder="Enter The Person Full Name">
+        </label>
+    </div>
+    <div id="div">
+        <!-- Result Content Here -->
+    </div>
+    <button id="button">Calculate</button>
+    <h1 id="result"></h1>
     
-    <!-- Load the external JavaScript file -->
+    <!-- Load the external JavaScript files -->
+    <script src="horoscope.js"></script>
     <script src="js.js"></script>
-
-    <!-- Access the variable defined in js.js -->
     <script>
-        // This will log the variable copy1 to the console
-        if(document.body,innerWidth <= phonewidth){
-            document.querySelector('h1').innerHTML = 'For Phone Only';
+        var screen = controlscreen();
+        if (screen === 'For Phone Only') {
+            document.querySelectorAll('div.container').forEach(each => {
+                each.style.width = '250px';
+            });
+        }
+        if (screen === 'For Tablet Only') {
+            document.querySelectorAll('div.container').forEach(each => {
+                each.style.width = '340px';
+            });
+        }
+        if (screen === 'For Windows Only') {
+            document.querySelectorAll('div.container').forEach(each => {
+                each.style.width = '500px';
+            });
         }
     </script>
 </body>
